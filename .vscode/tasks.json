@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  // tasks.json's label MUST match launch.json's preLaunchTask
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "C/C++: clang++ build active file",
+      "command": "clang++",
+      "args": [
+        "-std=c++17",
+        "-stdlib=libc++",
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}.out"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "shell",
+      "label": "Run",
+      "command": "${fileDirname}/${fileBasenameNoExtension}.out",
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "clear": true
+      }
+    }
+  ]
+}
